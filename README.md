@@ -10,9 +10,9 @@
 |---|---|
 | `gpt-image-2.6-flare` | 2.6 的快速迭代版，做草图、多方案、日常出图、交互改图 |
 | `gpt-image-2.6-sunburst` | 2.6 的细节版，复杂画面修改、最终素材，编辑一致性更好 |
-| `gpt-image-2.5` | 稳定版，细节和编辑精度好 |
+| `gpt-image-2.5-sunburst` | 上一代细节版，稳，适合返工少的批量交付 |
+| `gpt-image-2.5-flare` | 上一代快速版，比 2.6 便宜 |
 | `gpt-image-2` | 基础版，便宜，跑草图合适 |
-| `gpt-image-2-d` | 带编辑模式，改图、扩图、局部重绘 |
 
 2.6 对"场景规划"和"画面渲染"是分开控制的，同一个提示词改复杂度档位就能出不同画质，不用整段重写 prompt。
 
@@ -68,7 +68,7 @@ from openai import OpenAI
 client = OpenAI(api_key="sk-你的令牌", base_url="https://token173.net/v1")
 
 r = client.images.edit(
-    model="gpt-image-2-d",
+    model="gpt-image-2.6-sunburst",
     image=open("cup.png", "rb"),
     prompt="把背景换成暖木桌面，杯子不变",
     size="1024x1024",
